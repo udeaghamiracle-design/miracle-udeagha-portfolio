@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miracle Adaeze Udeagha — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --black:#0a0a0a;
+  --dark:#111111;
+  --card:#1a1a1a;
+  --card2:#222222;
+  --gold:#C9973A;
+  --gold-light:#e0b96a;
+  --gold-dim:rgba(201,151,58,0.15);
+  --white:#ffffff;
+  --off-white:#e8e0d0;
+  --gray:#999999;
+  --border:rgba(201,151,58,0.2);
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Raleway',sans-serif;
+  background:var(--black);
+  color:var(--off-white);
+  overflow-x:hidden;
+}
+
+/* ── GEOMETRIC BG LINES ── */
+.geo-bg{
+  position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;
+}
+.geo-bg svg{width:100%;height:100%;opacity:0.07;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:1.3rem 6%;
+  background:rgba(10,10,10,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{
+  font-family:'Playfair Display',serif;
+  font-size:1.1rem;font-weight:500;
+  color:var(--gold);letter-spacing:0.05em;
+  text-decoration:none;
+}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{
+  font-size:0.72rem;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gray);text-decoration:none;
+  transition:color 0.3s;
+}
+.nav-links a:hover{color:var(--gold);}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  justify-content:center;align-items:flex-start;
+  padding:10rem 6% 6rem;
+  position:relative;overflow:hidden;
+}
+.hero-glow{
+  position:absolute;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,151,58,0.08) 0%,transparent 70%);
+  top:-100px;right:-100px;pointer-events:none;
+}
+.hero-glow2{
+  position:absolute;
+  width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,151,58,0.05) 0%,transparent 70%);
+  bottom:-50px;left:10%;pointer-events:none;
+}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:0.8rem;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:2rem;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.2s;
+}
+.hero-tag::before{
+  content:'';display:block;width:30px;height:1px;background:var(--gold);
+}
+.hero-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,6vw,5.5rem);
+  font-weight:400;line-height:1.05;
+  color:var(--white);margin-bottom:0.5rem;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.4s;
+}
+.hero-title .gold{color:var(--gold);}
+.hero-title .italic{font-style:italic;}
+.hero-subtitle{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1rem,1.8vw,1.4rem);
+  font-weight:400;font-style:italic;
+  color:rgba(232,224,208,0.5);
+  margin-bottom:3rem;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.6s;
+}
+.hero-desc{
+  font-size:0.92rem;font-weight:300;line-height:2;
+  color:rgba(232,224,208,0.65);
+  max-width:560px;margin-bottom:3.5rem;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.8s;
+}
+.hero-badges{
+  display:flex;gap:0.8rem;flex-wrap:wrap;margin-bottom:3rem;
+  opacity:0;animation:fadeUp 0.8s ease forwards 0.9s;
+}
+.badge{
+  font-size:0.65rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  padding:0.5rem 1.2rem;
+  border:1px solid var(--gold);
+  color:var(--gold);
+}
+.hero-cta{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  opacity:0;animation:fadeUp 0.8s ease forwards 1s;
+}
+.btn-gold{
+  display:inline-block;padding:1rem 2.5rem;
+  background:var(--gold);color:var(--black);
+  font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.3s;
+}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+.btn-ghost{
+  display:inline-block;padding:1rem 2.5rem;
+  border:1px solid rgba(232,224,208,0.2);
+  color:rgba(232,224,208,0.7);
+  font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  text-decoration:none;transition:all 0.3s;
+}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+
+/* ── STATS BAR ── */
+.stats-bar{
+  background:var(--dark);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:3rem 6%;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:linear-gradient(var(--dark),var(--dark)) padding-box,var(--border) border-box;
+}
+.stats-bar-inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:var(--border);gap:1px;
+}
+.stat-item{
+  background:var(--dark);
+  padding:2.5rem 2rem;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.stat-item::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:2px;background:var(--gold);
+  transition:width 0.5s ease;
+}
+.stat-item:hover::after{width:100%;}
+.stat-num{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;font-weight:400;
+  color:var(--gold);line-height:1;margin-bottom:0.5rem;
+}
+.stat-label{
+  font-size:0.68rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--gray);margin-bottom:0.3rem;
+}
+.stat-sub{font-size:0.72rem;color:rgba(232,224,208,0.4);font-weight:300;}
+
+/* ── SECTIONS ── */
+.section{padding:7rem 6%;position:relative;z-index:1;}
+.section-dark{background:var(--dark);}
+.section-header{margin-bottom:4rem;}
+.section-eyebrow{
+  display:flex;align-items:center;gap:1rem;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1rem;
+}
+.section-eyebrow::before{content:'';display:block;width:30px;height:1px;background:var(--gold);}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.5vw,3rem);
+  font-weight:400;line-height:1.15;color:var(--white);
+}
+.section-title .italic{font-style:italic;color:var(--gold);}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-text p{
+  font-size:0.95rem;font-weight:300;line-height:2;
+  color:rgba(232,224,208,0.75);margin-bottom:1.5rem;
+}
+.about-text p strong{color:var(--gold);font-weight:600;}
+.about-badges{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:2rem;}
+.about-badge{
+  font-size:0.65rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  padding:0.45rem 1rem;border:1px solid var(--gold);color:var(--gold);
+}
+.about-visual{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--border);
+}
+.about-card{
+  background:var(--card);padding:2.5rem 2rem;
+  display:flex;flex-direction:column;gap:0.5rem;
+}
+.about-card-icon{font-size:1.5rem;margin-bottom:0.5rem;}
+.about-card-title{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;color:var(--gold);font-weight:500;
+}
+.about-card-text{font-size:0.8rem;font-weight:300;color:var(--gray);line-height:1.7;}
+
+/* ── NUMBERS ── */
+.numbers-section{
+  background:var(--dark);
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:60vh;
+}
+.numbers-left{
+  padding:6rem;
+  display:flex;flex-direction:column;justify-content:center;
+  border-right:1px solid var(--border);
+}
+.numbers-right{
+  padding:6rem;
+  display:flex;flex-direction:column;justify-content:center;gap:3rem;
+}
+.big-number{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(4rem,8vw,7rem);
+  font-weight:400;color:var(--gold);line-height:1;
+  margin-bottom:0.5rem;
+}
+.big-number-label{
+  font-size:0.78rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--white);margin-bottom:0.5rem;
+}
+.big-number-sub{font-size:0.82rem;font-weight:300;color:var(--gray);}
+.number-row{
+  display:flex;align-items:flex-start;gap:2rem;
+  padding-bottom:3rem;border-bottom:1px solid var(--border);
+}
+.number-row:last-child{border-bottom:none;padding-bottom:0;}
+.number-val{
+  font-family:'Playfair Display',serif;
+  font-size:2.5rem;font-weight:400;color:var(--gold);
+  line-height:1;flex-shrink:0;width:100px;
+}
+.number-info-label{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--white);margin-bottom:0.4rem;
+}
+.number-info-text{font-size:0.82rem;font-weight:300;color:var(--gray);line-height:1.6;}
+
+/* ── RESULTS ── */
+.results-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);margin-top:4rem;}
+.result-card{
+  background:var(--card);padding:3rem;
+  position:relative;overflow:hidden;
+  transition:background 0.3s;
+}
+.result-card:hover{background:var(--card2);}
+.result-card::before{
+  content:'';position:absolute;top:0;left:0;
+  width:3px;height:0;background:var(--gold);
+  transition:height 0.4s ease;
+}
+.result-card:hover::before{height:100%;}
+.result-icon{font-size:2rem;margin-bottom:1.5rem;}
+.result-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;color:var(--gold);margin-bottom:1rem;font-weight:500;
+}
+.result-text{font-size:0.85rem;font-weight:300;color:var(--gray);line-height:1.8;}
+.result-text strong{color:var(--off-white);font-weight:600;}
+
+/* ── SERVICES ── */
+.services-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);margin-top:4rem;
+}
+.service-card{
+  background:var(--card);padding:3.5rem 2.5rem;
+  position:relative;overflow:hidden;
+  transition:background 0.4s;
+}
+.service-card:hover{background:var(--card2);}
+.service-card::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:2px;background:var(--gold);
+  transition:width 0.5s ease;
+}
+.service-card:hover::after{width:100%;}
+.svc-num{
+  font-family:'Playfair Display',serif;
+  font-size:4rem;font-weight:400;
+  color:rgba(201,151,58,0.1);
+  line-height:1;margin-bottom:1.5rem;
+}
+.svc-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;color:var(--white);
+  margin-bottom:1rem;font-weight:500;
+}
+.svc-desc{font-size:0.83rem;font-weight:300;color:var(--gray);line-height:1.9;margin-bottom:2rem;}
+.svc-tags{display:flex;flex-wrap:wrap;gap:0.5rem;}
+.svc-tag{
+  font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.35rem 0.8rem;border:1px solid var(--border);
+  color:var(--gold);transition:border-color 0.3s;
+}
+.service-card:hover .svc-tag{border-color:rgba(201,151,58,0.4);}
+
+/* ── EXPERIENCE ── */
+.exp-list{margin-top:4rem;}
+.exp-item{
+  display:grid;grid-template-columns:220px 1fr;
+  gap:3rem;padding:3rem 0;
+  border-top:1px solid var(--border);
+  transition:background 0.3s;
+}
+.exp-item:last-child{border-bottom:1px solid var(--border);}
+.exp-period{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--gold);padding-top:0.3rem;
+}
+.exp-role{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;color:var(--white);margin-bottom:0.3rem;font-weight:500;
+}
+.exp-company{
+  font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--gray);margin-bottom:1.2rem;
+}
+.exp-desc{font-size:0.85rem;font-weight:300;color:rgba(232,224,208,0.65);line-height:1.9;max-width:600px;margin-bottom:2rem;}
+.exp-metrics{display:flex;flex-wrap:wrap;gap:2rem;}
+.metric{display:flex;flex-direction:column;gap:0.2rem;}
+.metric-val{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;font-weight:400;color:var(--gold);line-height:1;
+}
+.metric-label{font-size:0.65rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:4rem;}
+.skill-group{background:var(--card);padding:3rem;}
+.skill-group-title{
+  font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:1.5rem;
+  display:flex;align-items:center;gap:0.8rem;
+}
+.skill-group-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.skill-items{display:flex;flex-direction:column;gap:0.7rem;}
+.skill-item{
+  display:flex;align-items:center;gap:0.8rem;
+  font-size:0.83rem;font-weight:300;color:rgba(232,224,208,0.75);
+}
+.skill-item::before{content:'◆';font-size:0.4rem;color:var(--gold);flex-shrink:0;}
+
+/* ── WHY ME ── */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem;}
+.why-list{display:flex;flex-direction:column;gap:0;}
+.why-item{
+  display:flex;gap:1.5rem;padding:2rem 0;
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+.why-item:first-child{padding-top:0;}
+.why-icon{
+  width:44px;height:44px;
+  background:var(--gold-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;margin-top:0.2rem;
+}
+.why-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;color:var(--white);margin-bottom:0.5rem;font-weight:500;
+}
+.why-text{font-size:0.82rem;font-weight:300;color:var(--gray);line-height:1.8;}
+.what-brands{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+.brand-item{background:var(--card);padding:1.8rem 2rem;}
+.brand-arrow{color:var(--gold);font-size:1.2rem;margin-right:0.8rem;}
+.brand-title{
+  font-family:'Playfair Display',serif;
+  font-size:1rem;color:var(--white);margin-bottom:0.5rem;font-weight:500;
+}
+.brand-text{font-size:0.8rem;font-weight:300;color:var(--gray);line-height:1.7;}
+.brands-heading{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;color:var(--gold);margin-bottom:2rem;font-weight:400;font-style:italic;
+}
+
+/* ── CERTS ── */
+.certs-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);margin-top:4rem;}
+.cert-card{
+  background:var(--card);padding:2.5rem;
+  display:flex;flex-direction:column;gap:0.5rem;
+  position:relative;overflow:hidden;transition:background 0.3s;
+}
+.cert-card:hover{background:var(--card2);}
+.cert-num{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;font-weight:400;
+  color:rgba(201,151,58,0.12);line-height:1;margin-bottom:0.5rem;
+}
+.cert-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;color:var(--white);font-weight:500;
+}
+.cert-issuer{font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);}
+.cert-desc{font-size:0.78rem;font-weight:300;color:var(--gray);line-height:1.6;margin-top:0.5rem;}
+
+/* ── CONTACT ── */
+.contact-section{
+  background:var(--dark);
+  padding:8rem 6%;
+  display:grid;grid-template-columns:1fr 1fr;gap:6rem;
+  border-top:1px solid var(--border);
+}
+.contact-left{}
+.contact-big{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,3.5vw,2.8rem);
+  font-weight:400;color:var(--white);
+  line-height:1.25;margin-bottom:1.5rem;
+}
+.contact-big .italic{font-style:italic;color:var(--gold);}
+.contact-text{font-size:0.88rem;font-weight:300;color:var(--gray);line-height:1.9;margin-bottom:3rem;}
+.avail-badge{
+  display:inline-flex;align-items:center;gap:0.7rem;
+  padding:0.6rem 1.2rem;
+  border:1px solid rgba(74,222,128,0.3);
+  margin-bottom:2rem;
+}
+.avail-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#4ade80;animation:pulse 2s ease infinite;
+}
+.avail-text{font-size:0.68rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#4ade80;}
+.contact-links{display:flex;flex-direction:column;gap:1px;background:var(--border);}
+.contact-link{
+  display:flex;align-items:center;gap:1.2rem;
+  background:var(--card);padding:1.5rem 2rem;
+  text-decoration:none;transition:background 0.3s;
+}
+.contact-link:hover{background:var(--card2);}
+.cl-icon{
+  width:40px;height:40px;
+  background:var(--gold-dim);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;flex-shrink:0;color:var(--gold);
+}
+.cl-label{font-size:0.62rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.2rem;}
+.cl-value{font-size:0.83rem;font-weight:300;color:rgba(232,224,208,0.75);}
+.contact-right{display:flex;flex-direction:column;justify-content:center;}
+.contact-quote{
+  font-family:'Playfair Display',serif;
+  font-size:1.4rem;font-style:italic;font-weight:400;
+  color:rgba(232,224,208,0.6);line-height:1.7;
+  border-left:3px solid var(--gold);
+  padding-left:2rem;margin-bottom:3rem;
+}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--black);
+  border-top:1px solid var(--border);
+  padding:2rem 6%;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.footer-logo{
+  font-family:'Playfair Display',serif;
+  font-size:0.9rem;color:var(--gold);
+}
+.footer-copy{font-size:0.68rem;color:var(--gray);letter-spacing:0.1em;}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(28px);}
+  to{opacity:1;transform:translateY(0);}
+}
+@keyframes pulse{
+  0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(74,222,128,0.4);}
+  50%{opacity:0.7;box-shadow:0 0 0 6px rgba(74,222,128,0);}
+}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-delay-1{transition-delay:0.1s;}
+.reveal-delay-2{transition-delay:0.2s;}
+.reveal-delay-3{transition-delay:0.3s;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
+  .about-grid,.numbers-section,.why-grid,.contact-section{grid-template-columns:1fr;}
+  .numbers-left{border-right:none;border-bottom:1px solid var(--border);padding:4rem 6%;}
+  .numbers-right{padding:4rem 6%;}
+  .services-grid{grid-template-columns:1fr;}
+  .skills-grid{grid-template-columns:1fr;}
+  .certs-grid{grid-template-columns:1fr;}
+  .stats-bar-inner{grid-template-columns:1fr 1fr;}
+  .exp-item{grid-template-columns:1fr;}
+  nav{padding:1rem 5%;}
+  .nav-links{gap:1.5rem;}
+  .section{padding:5rem 5%;}
+}
+@media(max-width:600px){
+  .nav-links{display:none;}
+  .results-grid{grid-template-columns:1fr;}
+  .hero{padding:8rem 5% 4rem;}
+  .stats-bar-inner{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- GEOMETRIC BG -->
+<div class="geo-bg">
+<svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+  <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#C9973A"/><stop offset="100%" stop-color="#C9973A" stop-opacity="0"/></linearGradient></defs>
+  <line x1="1200" y1="0" x2="800" y2="400" stroke="url(#g1)" stroke-width="1"/>
+  <line x1="1440" y1="100" x2="900" y2="600" stroke="url(#g1)" stroke-width="0.5"/>
+  <line x1="1300" y1="0" x2="1440" y2="300" stroke="url(#g1)" stroke-width="0.8"/>
+  <line x1="0" y1="700" x2="400" y2="900" stroke="url(#g1)" stroke-width="0.5"/>
+  <polygon points="1350,0 1440,0 1440,150 1300,80" fill="#C9973A" fill-opacity="0.04"/>
+  <polygon points="1380,200 1440,180 1440,350 1360,300" fill="#C9973A" fill-opacity="0.03"/>
+  <line x1="100" y1="0" x2="0" y2="200" stroke="url(#g1)" stroke-width="0.5"/>
+</svg>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Miracle Udeagha</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <p class="hero-tag">Lagos, Nigeria · Remote-Ready Globally</p>
+  <h1 class="hero-title">
+    Let's Build<br>
+    <span class="italic gold">Something</span><br>
+    That Works
+  </h1>
+  <p class="hero-subtitle">Miracle Adaeze Udeagha — Virtual Assistant · Social Media Manager · Customer Support Specialist</p>
+  <p class="hero-desc">I help businesses stay organised, visible, and well-supported — remotely and consistently. I bring a rare combination of administrative precision, social media strategy, and customer-first thinking that makes me the all-in-one support partner brands actually need.</p>
+  <div class="hero-badges">
+    <span class="badge">ALX-Certified</span>
+    <span class="badge">Results-Driven</span>
+    <span class="badge">6+ Years of Excellence</span>
+  </div>
+  <div class="hero-cta">
+    <a href="#contact" class="btn-gold">Work With Me</a>
+    <a href="#experience" class="btn-ghost">View My Work</a>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div style="background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="stats-bar-inner">
+    <div class="stat-item reveal">
+      <div class="stat-num">6+</div>
+      <div class="stat-label">Years Experience</div>
+      <div class="stat-sub">Consistent professional excellence</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-num">98%</div>
+      <div class="stat-label">Client Satisfaction</div>
+      <div class="stat-sub">Maintained across every engagement</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-num">1K+</div>
+      <div class="stat-label">Followers Grown</div>
+      <div class="stat-sub">Organic growth in just 60 days</div>
+    </div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-num">35%</div>
+      <div class="stat-label">Engagement Increase</div>
+      <div class="stat-sub">Data-informed content strategy</div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="section-header">
+        <p class="section-eyebrow">About Me</p>
+        <h2 class="section-title">The Professional<br>Behind the <span class="italic">Results</span></h2>
+      </div>
+      <p>Miracle Adaeze Udeagha is a Lagos-based remote professional who helps businesses stay <strong>organised, visible, and well-supported</strong>. She brings a rare combination of administrative precision, social media strategy, and customer-first thinking — making her the all-in-one support partner brands actually need.</p>
+      <p>ALX-Certified with deep CRM expertise, Miracle operates with consistency, professionalism, and a genuine investment in each client's growth. She doesn't wait to be reminded — she builds systems, follows through, and delivers results that speak for themselves.</p>
+      <div class="about-badges">
+        <span class="about-badge">Lagos-Based</span>
+        <span class="about-badge">Remote-Ready Globally</span>
+        <span class="about-badge">WAT · GMT · PST Friendly</span>
+      </div>
+    </div>
+    <div class="about-visual reveal reveal-delay-1">
+      <div class="about-card">
+        <div class="about-card-icon">⚡</div>
+        <div class="about-card-title">Proactive Thinking</div>
+        <div class="about-card-text">Doesn't just complete tasks — thinks ahead and flags problems before they happen.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">💬</div>
+        <div class="about-card-title">Clear Communication</div>
+        <div class="about-card-text">Proactive updates mean you're never left wondering about progress or next steps.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🎯</div>
+        <div class="about-card-title">Ownership Mindset</div>
+        <div class="about-card-text">Treats every client's brand like her own — with accountability from day one.</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🌍</div>
+        <div class="about-card-title">Remote-Native</div>
+        <div class="about-card-text">Tools, timezone management, and async communication are second nature.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<div class="numbers-section reveal">
+  <div class="numbers-left">
+    <p class="section-eyebrow" style="margin-bottom:2rem;">The Numbers Speak</p>
+    <div class="big-number">98%</div>
+    <div class="big-number-label">Client Satisfaction Rate</div>
+    <div class="big-number-sub">Maintained across every engagement, every time</div>
+  </div>
+  <div class="numbers-right">
+    <div class="number-row">
+      <div class="number-val">1K+</div>
+      <div>
+        <div class="number-info-label">Followers Grown</div>
+        <div class="number-info-text">Organic growth delivered in just 60 days through strategic, intentional content</div>
+      </div>
+    </div>
+    <div class="number-row">
+      <div class="number-val">35%</div>
+      <div>
+        <div class="number-info-label">Engagement Increase</div>
+        <div class="number-info-text">Delivered through data-informed content planning and community management</div>
+      </div>
+    </div>
+    <div class="number-row">
+      <div class="number-val">15%</div>
+      <div>
+        <div class="number-info-label">Cost Reduction</div>
+        <div class="number-info-text">Vendor cost savings through strategic negotiation across 15+ events annually</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<section class="section section-dark">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Proof of Work</p>
+    <h2 class="section-title">Results That <span class="italic">Matter</span></h2>
+  </div>
+  <div class="results-grid reveal">
+    <div class="result-card">
+      <div class="result-icon">📈</div>
+      <div class="result-title">Organic Social Growth</div>
+      <div class="result-text">Grew a brand's following by <strong>1,000+ followers in 60 days</strong> without paid ads — through strategic, intentional content that connected with the right audience.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">🔥</div>
+      <div class="result-title">Engagement Excellence</div>
+      <div class="result-text">Delivered a <strong>35% average increase</strong> in engagement rates through data-informed content planning and consistent community management across 4 platforms.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">🎪</div>
+      <div class="result-title">Large-Scale Event Execution</div>
+      <div class="result-text">Coordinated logistics for <strong>2,000+ attendees</strong> across 15+ events annually — with a zero-incident record and 90%+ repeat client bookings over 5 years.</div>
+    </div>
+    <div class="result-card">
+      <div class="result-icon">⚙️</div>
+      <div class="result-title">Seamless CRM Operations</div>
+      <div class="result-text">Maintained <strong>4.7/5 guest satisfaction</strong> and reduced escalation rates by 35% through disciplined CRM workflows and empathetic, fast complaint resolution.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">What I Do</p>
+    <h2 class="section-title">Services <span class="italic">Offered</span></h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="svc-num">01</div>
+      <h3 class="svc-title">Virtual Assistance</h3>
+      <p class="svc-desc">Calendar management, inbox management, research, data entry, and administrative workflows — keeping your operations running without friction so you can focus on what only you can do.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Trello</span>
+        <span class="svc-tag">Notion</span>
+        <span class="svc-tag">Google Workspace</span>
+        <span class="svc-tag">Asana</span>
+        <span class="svc-tag">Slack</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="svc-num">02</div>
+      <h3 class="svc-title">Social Media Management</h3>
+      <p class="svc-desc">Content planning, copywriting, scheduling, and analytics — turning your ideas into content that connects, converts, and builds lasting brand presence across every platform.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">Canva</span>
+        <span class="svc-tag">Buffer</span>
+        <span class="svc-tag">Meta Business Suite</span>
+        <span class="svc-tag">Analytics</span>
+      </div>
+    </div>
+    <div class="service-card">
+      <div class="svc-num">03</div>
+      <h3 class="svc-title">Customer Support</h3>
+      <p class="svc-desc">Handling inquiries, resolving complaints, and managing helpdesk workflows with speed, empathy, and professionalism that builds lasting trust and strengthens your brand reputation.</p>
+      <div class="svc-tags">
+        <span class="svc-tag">ZenDesk</span>
+        <span class="svc-tag">FreshDesk</span>
+        <span class="svc-tag">CRM Platforms</span>
+        <span class="svc-tag">Live Chat</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section section-dark" id="experience">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Career</p>
+    <h2 class="section-title">Professional <span class="italic">Experience</span></h2>
+  </div>
+  <div class="exp-list">
+    <div class="exp-item reveal">
+      <div class="exp-period">Jan 2020 — Present</div>
+      <div>
+        <h3 class="exp-role">Lead Event Producer</h3>
+        <p class="exp-company">Excel Events Limited · Lagos, Nigeria</p>
+        <p class="exp-desc">Direct end-to-end logistics, vendor coordination, and scheduling for 15+ events annually, serving up to 2,000 attendees. Manage budgets averaging ₦5M+, reduce vendor costs by 15% through strategic negotiation, and maintain a zero-incident track record using tools like Trello, Slack, and Zoom.</p>
+        <div class="exp-metrics">
+          <div class="metric"><div class="metric-val">2K+</div><div class="metric-label">Max Attendees</div></div>
+          <div class="metric"><div class="metric-val">98%</div><div class="metric-label">Satisfaction</div></div>
+          <div class="metric"><div class="metric-val">90%+</div><div class="metric-label">Repeat Bookings</div></div>
+          <div class="metric"><div class="metric-val">15%</div><div class="metric-label">Cost Reduction</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Jan 2023 — Sept 2024</div>
+      <div>
+        <h3 class="exp-role">Social Media Manager</h3>
+        <p class="exp-company">Life of Freedom Ministry · Lagos, Nigeria</p>
+        <p class="exp-desc">Grew combined following across Facebook, Instagram, YouTube, and TikTok by 1,000+ organic followers within 60 days. Boosted post engagement by 35%, maintained sub-2-hour response times, and executed campaigns increasing YouTube viewership by 25% quarter-over-quarter.</p>
+        <div class="exp-metrics">
+          <div class="metric"><div class="metric-val">1K+</div><div class="metric-label">Followers in 60 Days</div></div>
+          <div class="metric"><div class="metric-val">35%</div><div class="metric-label">Engagement Lift</div></div>
+          <div class="metric"><div class="metric-val">25%</div><div class="metric-label">YouTube Growth QoQ</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">Feb 2020 — Present</div>
+      <div>
+        <h3 class="exp-role">Staff Writer / Content Creator</h3>
+        <p class="exp-company">First Red Africa Production Limited · Lagos, Nigeria</p>
+        <p class="exp-desc">Produce 5+ SEO-optimized articles and scripts monthly with a 100% on-time delivery record across 5+ years. Conduct fact-checking and interviews, reducing editorial revisions by 25%, and collaborate cross-functionally contributing to a 20% increase in digital readership.</p>
+        <div class="exp-metrics">
+          <div class="metric"><div class="metric-val">100%</div><div class="metric-label">On-time Delivery</div></div>
+          <div class="metric"><div class="metric-val">25%</div><div class="metric-label">Fewer Revisions</div></div>
+          <div class="metric"><div class="metric-val">20%</div><div class="metric-label">Readership Growth</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="exp-item reveal">
+      <div class="exp-period">May 2017 — Jun 2018</div>
+      <div>
+        <h3 class="exp-role">Customer Service Representative</h3>
+        <p class="exp-company">Oragon Hotel & Suites · Lagos, Nigeria</p>
+        <p class="exp-desc">Handled 20+ daily guest inquiries via phone, email, and live chat, maintaining a 4.7/5 satisfaction score. Resolved complaints within 15 minutes on average, cutting escalation rates by 35%, and increased revenue per customer by 20% through targeted upselling.</p>
+        <div class="exp-metrics">
+          <div class="metric"><div class="metric-val">4.7/5</div><div class="metric-label">Satisfaction Score</div></div>
+          <div class="metric"><div class="metric-val">35%</div><div class="metric-label">Fewer Escalations</div></div>
+          <div class="metric"><div class="metric-val">20%</div><div class="metric-label">Revenue Increase</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Expertise</p>
+    <h2 class="section-title">Tools & Skills <span class="italic">at a Glance</span></h2>
+  </div>
+  <div class="skills-grid reveal">
+    <div class="skill-group">
+      <div class="skill-group-title">Administrative</div>
+      <div class="skill-items">
+        <div class="skill-item">Calendar & Email Management</div>
+        <div class="skill-item">Data Entry & Research</div>
+        <div class="skill-item">Document Management</div>
+        <div class="skill-item">Task Coordination & Follow-up</div>
+        <div class="skill-item">Google Workspace · Microsoft Office</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Social Media</div>
+      <div class="skill-items">
+        <div class="skill-item">Content Strategy & Copywriting</div>
+        <div class="skill-item">Scheduling & Analytics</div>
+        <div class="skill-item">Community Growth & Management</div>
+        <div class="skill-item">Video Editing — Reels & Short-form</div>
+        <div class="skill-item">Canva · Buffer · Meta Business Suite</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Customer Support</div>
+      <div class="skill-items">
+        <div class="skill-item">Live Chat & Email Support</div>
+        <div class="skill-item">Complaint Resolution</div>
+        <div class="skill-item">CRM & Helpdesk Operations</div>
+        <div class="skill-item">ZenDesk · FreshDesk · HubSpot</div>
+        <div class="skill-item">SLA Management</div>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Tools & Platforms</div>
+      <div class="skill-items">
+        <div class="skill-item">Trello · Asana · Notion</div>
+        <div class="skill-item">Slack · Zoom · Microsoft Teams</div>
+        <div class="skill-item">Instagram · Facebook · TikTok · YouTube</div>
+        <div class="skill-item">SEO Writing & Content Management</div>
+        <div class="skill-item">Google Analytics · Social Media Analytics</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="section section-dark">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">The Difference</p>
+    <h2 class="section-title">Why Work With <span class="italic">Miracle?</span></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-list reveal">
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <div>
+          <div class="why-title">Proactive Thinking</div>
+          <div class="why-text">She doesn't just complete tasks — she thinks ahead and flags problems before they happen, keeping your operations smooth without constant check-ins.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">💬</div>
+        <div>
+          <div class="why-title">Clear Communication</div>
+          <div class="why-text">Proactive updates mean you're never left wondering about progress or next steps. Every task has a status, every deadline is tracked.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⭐</div>
+        <div>
+          <div class="why-title">Proven 98% Satisfaction</div>
+          <div class="why-text">Not luck — it's process, consistency, and genuine care baked into every engagement, every time, across every role.</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">🌍</div>
+        <div>
+          <div class="why-title">Remote-Native</div>
+          <div class="why-text">Tools, timezone management, and async communication are second nature to her workflow. 99% uptime, always reachable.</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-1">
+      <div class="brands-heading">What Brands Get</div>
+      <div class="what-brands">
+        <div class="brand-item">
+          <div class="brand-title"><span class="brand-arrow">→</span>A True Partnership</div>
+          <div class="brand-text">Miracle treats your brand like it's her own — bringing ownership, accountability, and genuine investment to every project from day one.</div>
+        </div>
+        <div class="brand-item">
+          <div class="brand-title"><span class="brand-arrow">→</span>Reliable Content Calendars</div>
+          <div class="brand-text">Consistent, on-brand social media delivery — never a missed post, never an off-message caption.</div>
+        </div>
+        <div class="brand-item">
+          <div class="brand-title"><span class="brand-arrow">→</span>Seamless Admin & CRM Support</div>
+          <div class="brand-text">Backend operations that hum quietly in the background so you can focus forward.</div>
+        </div>
+        <div class="brand-item">
+          <div class="brand-title"><span class="brand-arrow">→</span>Measurable Results</div>
+          <div class="brand-text">Follower growth, engagement lifts, and response rate improvements — with clear reporting.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section">
+  <div class="section-header reveal">
+    <p class="section-eyebrow">Credentials</p>
+    <h2 class="section-title">Certifications & <span class="italic">Education</span></h2>
+  </div>
+  <div class="certs-grid reveal">
+    <div class="cert-card">
+      <div class="cert-num">01</div>
+      <div class="cert-name">ALX Virtual Assistant Professional Certificate</div>
+      <div class="cert-issuer">ALX Africa · 2025</div>
+      <div class="cert-desc">Comprehensive training in remote operations, tools, and modern VA best practices.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-num">02</div>
+      <div class="cert-name">Certified CRM Professional</div>
+      <div class="cert-issuer">PSMI · 2023</div>
+      <div class="cert-desc">Certified expertise in customer relationship management systems and pipelines.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-num">03</div>
+      <div class="cert-name">Digital Marketing Certification</div>
+      <div class="cert-issuer">Hagital Consulting · 2020</div>
+      <div class="cert-desc">Strategic and platform-specific training in digital marketing and social media growth.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-num">04</div>
+      <div class="cert-name">B.A. Mass Communication</div>
+      <div class="cert-issuer">University of Nigeria, Nsukka</div>
+      <div class="cert-desc">Foundation in professional communication, media, research, and editorial writing.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-left reveal">
+    <div class="avail-badge">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Currently available for new opportunities</span>
+    </div>
+    <h2 class="contact-big">Ready to Work<br><span class="italic">Together?</span></h2>
+    <p class="contact-text">Whether you need a strategic social media partner, a detail-oriented virtual assistant, or a customer support expert — Miracle is available and ready to help your brand grow.</p>
+    <div class="contact-links">
+      <a href="mailto:udeaghamiracle@gmail.com" class="contact-link">
+        <div class="cl-icon">✉</div>
+        <div><span class="cl-label">Email</span><span class="cl-value">udeaghamiracle@gmail.com</span></div>
+      </a>
+      <a href="tel:08183455958" class="contact-link">
+        <div class="cl-icon">☎</div>
+        <div><span class="cl-label">Phone</span><span class="cl-value">08183455958</span></div>
+      </a>
+      <a href="https://www.linkedin.com/in/miracle-udeagha" target="_blank" class="contact-link">
+        <div class="cl-icon">in</div>
+        <div><span class="cl-label">LinkedIn</span><span class="cl-value">linkedin.com/in/miracle-udeagha</span></div>
+      </a>
+      <div class="contact-link" style="cursor:default;">
+        <div class="cl-icon">📍</div>
+        <div><span class="cl-label">Location</span><span class="cl-value">Lagos, Nigeria · Open to Remote Worldwide</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="contact-right reveal reveal-delay-1">
+    <blockquote class="contact-quote">
+      "I don't wait to be reminded. I build systems, follow through, and deliver results that speak for themselves."
+    </blockquote>
+    <a href="mailto:udeaghamiracle@gmail.com" class="btn-gold" style="display:inline-block;">Send Me a Message</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Miracle Adaeze Udeagha</span>
+  <span class="footer-copy">© 2025 · Lagos, Nigeria · Remote-Ready</span>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:0.1});
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
